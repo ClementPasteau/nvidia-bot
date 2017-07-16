@@ -28,7 +28,7 @@ def check_drivers():
         print('New driver! Out %d minutes ago!' % (seconds_difference/60))
         page_url = pre_url + first_post_title.getnext().getnext().find('a').get('href')
         response = ":nvidia: @ryuken NEW DRIVER !! *%s* ! %s :nvidia:" % (driver_version, page_url)
-        slack_client.api_call("chat.postMessage", channel=channel, text=response, as_user=True)
+        slack_client.api_call("chat.postMessage", channel="general", text=response, as_user=True)
     else:
         print('Existing driver. Out %d minutes ago!' % (seconds_difference/60))
 
